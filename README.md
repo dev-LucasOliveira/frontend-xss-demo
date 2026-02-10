@@ -72,6 +72,12 @@ XSS is dangerous because the browser trusts your application; injected code has 
 
 React 18, Vite, TypeScript, React Router, DOMPurify.
 
-## License and contributions
+## Contributing
 
-Open source for educational use only. Contributions welcome; the goal is to educate, not to enable misuse.
+Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+**Important:** This repository uses branch protection on `main`. All changes must go through Pull Requests. See [.github/BRANCH_PROTECTION.md](.github/BRANCH_PROTECTION.md) for setup instructions.
+
+## License
+
+Open source for educational use only. The goal is to educate, not to enable misuse.
