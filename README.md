@@ -1,161 +1,77 @@
-# XSS Testing - Demonstração Educacional
+# XSS Testing — Educational Demo
 
-Este projeto é uma aplicação frontend educacional criada para demonstrar riscos de **Cross-Site Scripting (XSS)** de forma controlada e não maliciosa.
+This repository is a **frontend educational project** to demonstrate **Cross-Site Scripting (XSS)** risks in a controlled, non-malicious way. The goal is to help developers understand why unsafe HTML rendering is dangerous and why sanitization and secure patterns are mandatory.
 
-## ⚠️ Aviso Importante
+**What this project demonstrates:**
 
-Este projeto é **apenas para fins educacionais**. Ele demonstra vulnerabilidades XSS propositalmente para fins de aprendizado. **Nunca use código inseguro em produção!**
+- **Unsafe HTML rendering** — How rendering user or third-party content as HTML without sanitization allows arbitrary code execution.
+- **XSS risks in frontend applications** — How injected code runs in the same context as your app (same origin, access to storage and cookies).
+- **Why sanitization and secure patterns are mandatory** — The demo includes both a vulnerable version and a safe version so you can see the difference.
 
-## 🎯 Objetivos
+---
 
-Este projeto permite demonstrar:
+## ⚠️ Security Disclaimer
 
-1. Como renderizar HTML sem proteção é perigoso
-2. Como a sanitização previne ataques XSS
-3. A diferença prática entre código inseguro e seguro
+**This repository intentionally contains insecure code for educational purposes only.**
 
-## 🚀 Como Executar
+- The vulnerable code and examples are here to teach security awareness and defensive practices.
+- **Never use the insecure patterns in production.** Do not copy them into real applications.
+- The project is not intended to encourage or enable malicious use. Use it only for learning and training in a controlled environment.
 
-### Pré-requisitos
+## Goals
 
-- Node.js 18+ e npm/yarn/pnpm instalados
+- Show why rendering unsanitized HTML is dangerous.
+- Show how sanitization and safe patterns prevent XSS.
+- Let you compare a vulnerable route and a safe route in the same app.
 
-### Instalação
+## How to run
 
-```bash
-npm install
-```
+- **Prerequisites:** Node.js 18+ and npm (or yarn/pnpm).
+- **Install:** `npm install`
+- **Run:** `npm run dev` → app at `http://localhost:5173`
 
-### Executar em modo de desenvolvimento
+## Documentation
 
-```bash
-npm run dev
-```
+All XSS documentation is in **[docs/xss/](docs/xss/)**:
 
-A aplicação estará disponível em `http://localhost:5173`
+| Document | Content |
+|----------|---------|
+| [README](docs/xss/README.md) | What XSS is, how the demo works, index of all docs. |
+| [01-actions-without-user-interaction](docs/xss/01-actions-without-user-interaction.md) | Code runs without a click; automatic requests. |
+| [02-internal-phishing](docs/xss/02-internal-phishing.md) | Fake UI (e.g. "session expired") inside your app. |
+| [03-session-hijacking](docs/xss/03-session-hijacking.md) | Reading tokens from storage; account takeover risk. |
+| [insecure-patterns](docs/xss/insecure-patterns.md) | What vulnerable code looks like; how to test in the demo. |
+| [safe-patterns](docs/xss/safe-patterns.md) | Plain text, sanitization, and how to prevent XSS. |
 
-## 📁 Estrutura do Projeto
+Each impact doc (01–03) has: what it demonstrates, why it's dangerous, the injected HTML example, step-by-step flow, and a short takeaway. Educational use only.
+
+## Project structure
 
 ```
 XSS_testing/
-├── docs/
-│   └── security/
-│       └── xss/                  # Documentação educacional sobre XSS (isolada do código)
-│           ├── README.md
-│           ├── insecure-examples.md
-│           └── safe-examples.md
+├── docs/xss/           # All XSS docs (overview, 01–03, insecure/safe patterns)
+├── docs/security/xss/  # Stub that points to docs/xss
 ├── src/
-│   ├── components/
-│   │   ├── InsecureTodoApp.tsx   # Versão vulnerável a XSS
-│   │   ├── SecureTodoApp.tsx     # Versão protegida com DOMPurify
-│   │   └── TodoApp.css           # Estilos compartilhados
-│   ├── utils/
-│   │   └── auth.ts               # Utilitários para gerenciar token (opcional)
-│   ├── App.tsx                   # Componente principal com roteamento
-│   ├── main.tsx                  # Ponto de entrada
-│   └── index.css                 # Estilos globais
-├── package.json
-├── vite.config.ts
+│   ├── components/     # InsecureTodoApp, SecureTodoApp
+│   ├── utils/          # auth (fake token for demo)
+│   ├── App.tsx, main.tsx, index.css
+├── package.json, vite.config.ts, tsconfig, etc.
 └── README.md
 ```
 
-## 📖 Documentação de segurança
+## Demo app
 
-A documentação educacional sobre XSS fica **isolada** do código da aplicação em **[docs/security/xss/](docs/security/xss/)**:
+- **Local TODO list** — State in memory only (`useState`); no backend.
+- **Route `/inseguro`** — Renders TODO text as raw HTML. Vulnerable to XSS. **Do not use in production.**
+- **Route `/seguro`** — Same UI; content is sanitized (DOMPurify). Safe pattern.
+- **Fake token** — Stored in `localStorage` for demo; see [03-session-hijacking](docs/xss/03-session-hijacking.md).
 
-- **[README.md](docs/security/xss/README.md)** — O que é XSS, por que HTML não sanitizado é perigoso e como a doc se relaciona com o app demo.
-- **[insecure-examples.md](docs/security/xss/insecure-examples.md)** — Exemplos propositalmente inseguros e explicação dos riscos (sem payloads ou instruções de exploração).
-- **[safe-examples.md](docs/security/xss/safe-examples.md)** — Abordagens seguras (texto puro, sanitização) e comparação com os exemplos inseguros.
+XSS is dangerous because the browser trusts your application; injected code has the same privileges. Prevention: render user content as plain text or sanitize with a strict allowlist. Details in [docs/xss/](docs/xss/).
 
-Essa documentação é apenas para fins educacionais e não deve ser usada em produção.
+## Tech stack
 
-## 🔐 Funcionalidades
+React 18, Vite, TypeScript, React Router, DOMPurify.
 
-### TODO App com Estado Local
+## License and contributions
 
-A aplicação funciona completamente em estado local usando `useState` do React. Todos os TODOs são armazenados apenas em memória e não persistem após recarregar a página.
-
-### Duas Versões do TODO App
-
-#### 🔴 Versão Insegura (`/inseguro`)
-
-- Usa `dangerouslySetInnerHTML` sem sanitização
-- Qualquer HTML inserido é renderizado diretamente
-- Vulnerável a ataques XSS
-- **NUNCA use isso em produção!**
-
-#### 🟢 Versão Segura (`/seguro`)
-
-- Usa `DOMPurify` para sanitizar o conteúdo antes de renderizar
-- Remove scripts e elementos perigosos
-- Previne ataques XSS
-- **Abordagem recomendada para produção**
-
-## 📚 Conceitos Demonstrados
-
-### XSS (Cross-Site Scripting)
-
-XSS é uma vulnerabilidade que permite que atacantes injetem scripts maliciosos em páginas web visitadas por outros usuários. Este projeto demonstra:
-
-- **Como acontece**: Renderização direta de HTML sem sanitização
-- **Como prevenir**: Sanitização com bibliotecas como DOMPurify
-
-
-## 🛠️ Tecnologias Utilizadas
-
-- **React 18** - Biblioteca JavaScript para construir interfaces
-- **Vite** - Build tool e dev server
-- **TypeScript** - Tipagem estática
-- **React Router** - Roteamento
-- **DOMPurify** - Sanitização de HTML para prevenir XSS
-
-## 📝 Notas Educacionais
-
-### Por que a versão insegura é perigosa?
-
-Quando você usa `dangerouslySetInnerHTML` sem sanitização, qualquer HTML inserido pelo usuário é renderizado diretamente. Isso significa que:
-
-```javascript
-// Se alguém inserir:
-<script>alert('XSS!')</script>
-
-// Ou pior:
-<img src="x" onerror="alert('XSS!')" />
-```
-
-Esses scripts serão executados no navegador do usuário, podendo:
-- Roubar cookies/tokens
-- Redirecionar para sites maliciosos
-- Modificar o conteúdo da página
-- E muito mais...
-
-### Como a versão segura previne isso?
-
-DOMPurify remove elementos e atributos perigosos antes de renderizar:
-
-```javascript
-// Input malicioso:
-<script>alert('XSS!')</script>
-
-// Após sanitização:
-// (removido completamente)
-```
-
-Apenas tags e atributos seguros são permitidos, prevenindo a execução de scripts maliciosos.
-
-## 🎓 Uso Educacional
-
-Este projeto pode ser usado para:
-
-- Demonstrações em vídeo sobre segurança web
-- Treinamentos sobre vulnerabilidades XSS
-- Aulas sobre segurança frontend
-- Estudos sobre sanitização de dados
-
-## ⚖️ Licença
-
-Este projeto é de código aberto e está disponível apenas para fins educacionais.
-
-## 🙏 Contribuições
-
-Este é um projeto educacional. Sugestões e melhorias são bem-vindas, mas lembre-se: o objetivo é educar, não ensinar exploração maliciosa.
+Open source for educational use only. Contributions welcome; the goal is to educate, not to enable misuse.

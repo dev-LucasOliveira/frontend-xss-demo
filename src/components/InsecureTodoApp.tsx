@@ -49,7 +49,7 @@ function InsecureTodoApp() {
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             onKeyPress={handleKeyPress}
-            placeholder="Digite um TODO e pressione Enter..."
+            placeholder='Ex.: <img src="x" onerror="alert(1)"> (demonstração)'
             className="todo-input"
           />
           <button onClick={handleAddTodo} className="add-button">
