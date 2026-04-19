@@ -1,109 +1,125 @@
-# 🛡️ Configuração do Ruleset (Nova Interface do GitHub)
+# Ruleset setup (GitHub’s newer UI)
 
-Guia específico para a nova interface de **Rulesets** do GitHub.
+Guide for GitHub’s **Rulesets** interface.
 
 ---
 
-## Campos para preencher:
+## Fields to fill in
 
-### 1. **Ruleset Name** ⭐ (obrigatório)
+### 1. Ruleset name (required)
+
 ```
 Main Branch Protection
 ```
-Ou qualquer nome descritivo como:
+
+Or any descriptive name, for example:
+
 - `Protect main branch`
 - `Main branch rules`
 
 ---
 
-### 2. **Enforcement status**
-Mude de **"Disabled"** para:
+### 2. Enforcement status
+
+Change from **Disabled** to:
+
 ```
-✅ Enabled
+Enabled
 ```
-Isso ativa a proteção.
+
+This turns the ruleset on.
 
 ---
 
-### 3. **Target branches** ⭐ (obrigatório)
+### 3. Target branches (required)
 
-Clique em **"Add target"** e configure:
+Click **Add target** and set:
 
 - **Branch name pattern**: `main`
-- Ou use o padrão: `main` (exatamente assim)
+- Or use the pattern `main` exactly as shown.
 
-Isso aplica a regra apenas na branch `main`.
-
----
-
-### 4. **Bypass list**
-**Deixe vazio** (ou adicione apenas se você realmente precisar de exceções).
-
-Se você quiser que nem mesmo você possa fazer bypass:
-- **Não adicione nada** na bypass list
-- Isso garante que todos (incluindo você) sigam as regras
+This applies the rule only to `main`.
 
 ---
 
-### 5. **Rules - Marque estas opções:**
+### 4. Bypass list
 
-#### ✅ **Require a pull request before merging**
-**MARQUE ESTA!** É a mais importante.
-- Isso força que todas as mudanças venham via Pull Request
-- Você pode configurar quantas aprovações são necessárias (deixe 0 ou 1 se você aprovar seus próprios PRs)
+**Leave it empty** (or add entries only if you truly need exceptions).
 
-#### ✅ **Block force pushes**
-Já está marcado - mantenha assim.
+If you want nobody—including yourself—to bypass the rules:
 
-#### ✅ **Restrict deletions**
-Já está marcado - mantenha assim.
+- **Do not add** anyone to the bypass list.
+- Everyone follows the same rules.
 
-#### ✅ **Restrict updates** (recomendado)
-**MARQUE ESTA TAMBÉM!**
-- Isso impede push direto na branch
-- Complementa o "Require pull request"
+---
 
-#### ⚪ **Outras opções** (opcional, pode deixar desmarcado):
+### 5. Rules — enable these
+
+#### Require a pull request before merging
+
+**Enable this.** It is the most important rule.
+
+- All changes must go through a Pull Request.
+- Set how many approvals are required (`0` or `1` if you approve your own PRs).
+
+#### Block force pushes
+
+Usually on by default—keep it.
+
+#### Restrict deletions
+
+Usually on by default—keep it.
+
+#### Restrict updates (recommended)
+
+**Enable this too.**
+
+- Prevents direct pushes to the branch.
+- Complements **Require a pull request**.
+
+#### Other options (optional; can stay off)
+
 - Restrict creations
 - Require linear history
 - Require signed commits
-- Require status checks (só se usar CI/CD)
+- Require status checks (only if you use CI/CD)
 - Require deployments
 - Require code scanning
 - Require code quality
-- Copilot options
+- Copilot-related options
 
 ---
 
-## Resumo do que marcar:
+## Summary of what to enable
 
 ```
-✅ Ruleset Name: "Main Branch Protection"
-✅ Enforcement status: Enabled
-✅ Target branches: Add target → "main"
-✅ Bypass list: Deixar vazio
-✅ Rules:
-   ✅ Require a pull request before merging
-   ✅ Block force pushes
-   ✅ Restrict deletions
-   ✅ Restrict updates
+Ruleset name: "Main Branch Protection"
+Enforcement status: Enabled
+Target branches: Add target → "main"
+Bypass list: Empty
+Rules:
+   Require a pull request before merging
+   Block force pushes
+   Restrict deletions
+   Restrict updates
 ```
 
 ---
 
-## Depois de preencher:
+## After you finish
 
-1. Role até o final da página
-2. Clique no botão **"Create"**
-3. Pronto! Sua branch `main` está protegida.
+1. Scroll to the bottom of the page.
+2. Click **Create**.
+3. Your `main` branch should now be protected.
 
 ---
 
-## Teste:
+## Test
 
-Tente fazer push direto:
+Try a direct push:
+
 ```bash
 git push origin main
 ```
 
-Se aparecer erro, está funcionando! ✅
+If you get an error, protection is working.

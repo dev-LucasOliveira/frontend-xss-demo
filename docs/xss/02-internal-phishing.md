@@ -33,7 +33,7 @@ If the application renders this string as HTML without sanitization, the followi
   justify-content: space-between;
   align-items: center;
 ">
-  <span>⚠️ Sua sessão expirou. Faça login novamente.</span>
+  <span>⚠️ Your session has expired. Please sign in again.</span>
   <button
     style="
       padding: 8px 12px;
@@ -44,7 +44,7 @@ If the application renders this string as HTML without sanitization, the followi
       cursor: pointer;
       font-weight: bold;
     "
-    onclick="alert('Você foi hackeado!')"
+    onclick="alert('You would be phished here')"
   >
     Login
   </button>

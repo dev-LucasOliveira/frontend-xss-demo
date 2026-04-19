@@ -53,6 +53,7 @@ XSS_testing/
 ├── docs/security/xss/  # Stub that points to docs/xss
 ├── src/
 │   ├── components/     # InsecureTodoApp, SecureTodoApp
+│   ├── constants/      # Route paths
 │   ├── utils/          # auth (fake token for demo)
 │   ├── App.tsx, main.tsx, index.css
 ├── package.json, vite.config.ts, tsconfig, etc.
@@ -61,9 +62,10 @@ XSS_testing/
 
 ## Demo app
 
-- **Local TODO list** — State in memory only (`useState`); no backend.
-- **Route `/inseguro`** — Renders TODO text as raw HTML. Vulnerable to XSS. **Do not use in production.**
-- **Route `/seguro`** — Same UI; content is sanitized (DOMPurify). Safe pattern.
+- **Local todo list** — State in memory only (`useState`); no backend.
+- **Route `/insecure`** — Renders todo text as raw HTML. Vulnerable to XSS. **Do not use in production.**
+- **Route `/secure`** — Same UI; content is sanitized (DOMPurify). Safe pattern.
+- **Legacy routes** — `/inseguro` and `/seguro` redirect to `/insecure` and `/secure`.
 - **Fake token** — Stored in `localStorage` for demo; see [03-session-hijacking](docs/xss/03-session-hijacking.md).
 
 XSS is dangerous because the browser trusts your application; injected code has the same privileges. Prevention: render user content as plain text or sanitize with a strict allowlist. Details in [docs/xss/](docs/xss/).
@@ -71,6 +73,12 @@ XSS is dangerous because the browser trusts your application; injected code has 
 ## Tech stack
 
 React 18, Vite, TypeScript, React Router, DOMPurify.
+
+## Deployment
+
+- **Vercel / Netlify / root domain:** Run `npm run build` with the default settings. Production assets use base path `/` so scripts load from `/assets/...`.
+- **GitHub Pages** (`https://<user>.github.io/<repo>/`): The GitHub Actions workflow sets `VITE_BASE_PATH=/<repo>/` so URLs match the subpath. To build locally for Pages:  
+  `VITE_BASE_PATH=/your-repo-name/ npm run build`
 
 ## Contributing
 

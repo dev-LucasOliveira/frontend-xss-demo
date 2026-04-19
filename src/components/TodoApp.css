@@ -7,19 +7,19 @@
   padding: 1.5rem;
   border-radius: 8px;
   margin-bottom: 2rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 16px var(--shadow);
 }
 
 .warning-banner.insecure {
-  background-color: #fee;
-  border: 2px solid #fcc;
-  color: #c33;
+  background-color: var(--banner-insecure-bg);
+  border: 2px solid var(--banner-insecure-border);
+  color: var(--banner-insecure-text);
 }
 
 .warning-banner.secure {
-  background-color: #efe;
-  border: 2px solid #cfc;
-  color: #3c3;
+  background-color: var(--banner-secure-bg);
+  border: 2px solid var(--banner-secure-border);
+  color: var(--banner-secure-text);
 }
 
 .warning-banner h2 {
@@ -30,20 +30,22 @@
 .warning-banner p {
   font-size: 0.95rem;
   line-height: 1.6;
+  opacity: 0.95;
 }
 
 .todo-section {
-  background-color: white;
+  background-color: var(--bg-elevated);
   padding: 1.5rem;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 16px var(--shadow);
   margin-bottom: 2rem;
 }
 
 .todo-section h3 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
-  color: #333;
+  color: var(--text);
 }
 
 .input-container {
@@ -56,30 +58,36 @@
   flex: 1;
   padding: 0.75rem;
   font-size: 1rem;
-  border: 2px solid #ddd;
+  background-color: var(--bg-input);
+  color: var(--text);
+  border: 2px solid var(--border);
   border-radius: 6px;
   transition: border-color 0.2s;
 }
 
+.todo-input::placeholder {
+  color: var(--text-muted);
+}
+
 .todo-input:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: var(--accent);
 }
 
 .add-button {
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
-  background-color: #667eea;
-  color: white;
+  background-color: var(--accent);
+  color: #0a0a0f;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.2s;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .add-button:hover {
-  background-color: #5568d3;
+  background-color: var(--accent-hover);
 }
 
 .add-button:active {
@@ -94,14 +102,18 @@
 .todo-item {
   padding: 1rem;
   margin-bottom: 0.5rem;
-  background-color: #f9f9f9;
+  background-color: var(--bg-hover);
   border-radius: 6px;
-  border-left: 4px solid #667eea;
+  border-left: 4px solid var(--accent);
+  border-top: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
   transition: background-color 0.2s;
+  color: var(--text);
 }
 
 .todo-item:hover {
-  background-color: #f0f0f0;
+  background-color: var(--bg-todo-hover);
 }
 
 @media (max-width: 768px) {

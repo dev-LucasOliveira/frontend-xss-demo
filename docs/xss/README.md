@@ -21,8 +21,9 @@ So the frontend is a real attack vector: any place where unsanitized data become
 
 | Part of the app | Purpose |
 |-----------------|--------|
-| **Route `/inseguro`** | Renders TODO text as raw HTML (`dangerouslySetInnerHTML`). You can paste the examples from the docs to see impact. |
-| **Route `/seguro`** | Same UI, but content is sanitized (e.g. DOMPurify). The same input does not run as code. |
+| **Route `/insecure`** | Renders todo text as raw HTML (`dangerouslySetInnerHTML`). You can paste the examples from the docs to see impact. |
+| **Route `/secure`** | Same UI, but content is sanitized (e.g. DOMPurify). The same input does not run as code. |
+| **Legacy** | `/inseguro` and `/seguro` redirect to `/insecure` and `/secure`. |
 | **Fake token in `localStorage`** | Shows that script on the page can read tokens; used only for demonstration. |
 
 All examples in this folder are **controlled and non-malicious**. They demonstrate risk, not exploitation.
