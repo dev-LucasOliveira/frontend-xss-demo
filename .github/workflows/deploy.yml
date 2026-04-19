@@ -35,6 +35,8 @@ jobs:
         run: npm run build
         env:
           NODE_ENV: production
+          # Subpath for https://<user>.github.io/<repo>/
+          VITE_BASE_PATH: /frontend-xss-demo/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

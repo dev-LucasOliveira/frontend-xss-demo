@@ -74,6 +74,12 @@ XSS is dangerous because the browser trusts your application; injected code has 
 
 React 18, Vite, TypeScript, React Router, DOMPurify.
 
+## Deployment
+
+- **Vercel / Netlify / root domain:** Run `npm run build` with the default settings. Production assets use base path `/` so scripts load from `/assets/...`.
+- **GitHub Pages** (`https://<user>.github.io/<repo>/`): The GitHub Actions workflow sets `VITE_BASE_PATH=/<repo>/` so URLs match the subpath. To build locally for Pages:  
+  `VITE_BASE_PATH=/your-repo-name/ npm run build`
+
 ## Contributing
 
 Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
