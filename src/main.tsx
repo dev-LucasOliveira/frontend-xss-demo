@@ -4,7 +4,7 @@ import App from './App.tsx'
 import { initializeAuthToken } from './utils/auth'
 import './index.css'
 
-// Token falso para demonstração educacional (ex.: alert no XSS)
+// Fake token for educational demos (e.g. XSS + localStorage)
 initializeAuthToken()
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

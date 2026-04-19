@@ -32,14 +32,16 @@ In HTML5, **`<script>` elements added via `innerHTML` are not executed.** So `<s
 To see the vulnerability in the demo, use markup that runs when the element is parsed, for example:
 
 - `<img src="x" onerror="alert(1)">` — `onerror` runs when the image fails to load.
-- `<svg onload="alert(1)">` — `onload` runs when the SVG is inserted.
+- `<audio src="x" onerror="alert(1)">` — same idea for another media tag.
+
+Note: `<svg onload="alert(1)">` is often listed in cheat sheets, but **`onload` on SVG is unreliable when the markup is inserted via `innerHTML`** (including React’s `dangerouslySetInnerHTML`). Prefer `onerror` on `img`, `audio`, `video`, etc., for demos that must run after insertion.
 
 ---
 
 ## 3. How to test in the demo app
 
-- **Insecure route (`/inseguro`):** Paste one of the examples from [01](./01-actions-without-user-interaction.md), [02](./02-internal-phishing.md), or [03](./03-session-hijacking.md) into the TODO input and add the item. The code will run.
-- **Secure route (`/seguro`):** The same input is sanitized and will not run.
+- **Insecure route (`/insecure`):** Paste one of the examples from [01](./01-actions-without-user-interaction.md), [02](./02-internal-phishing.md), or [03](./03-session-hijacking.md) into the todo input and add the item. The code will run.
+- **Secure route (`/secure`):** The same input is sanitized and will not run.
 - **Token in console:** Open DevTools → Console and run `localStorage.getItem('auth_token')` to see the fake token the app uses for demos.
 
 ---

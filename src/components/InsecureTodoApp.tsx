@@ -1,25 +1,25 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+import XssDemoExamples from './XssDemoExamples'
 import './TodoApp.css'
 
 /**
- * COMPONENTE INSEGURO - VERSÃO VULNERÁVEL A XSS
- * 
- * ⚠️ ATENÇÃO: Este componente é propositalmente inseguro!
- * 
- * Este componente demonstra uma vulnerabilidade XSS ao usar
- * dangerouslySetInnerHTML sem nenhuma sanitização. Qualquer HTML
- * inserido no input será renderizado diretamente no DOM.
- * 
- * NUNCA use isso em produção!
- * Este código é apenas para fins educacionais.
+ * INSECURE COMPONENT — XSS-VULNERABLE VERSION
+ *
+ * WARNING: This component is intentionally insecure.
+ *
+ * It demonstrates XSS by using dangerouslySetInnerHTML with no sanitization.
+ * Any HTML typed into the input is rendered directly in the DOM.
+ *
+ * NEVER use this in production. For educational purposes only.
  */
 function InsecureTodoApp() {
   const [todos, setTodos] = useState<string[]>([])
   const [inputValue, setInputValue] = useState('')
+  const inputRef = useRef<HTMLInputElement>(null)
 
   const handleAddTodo = () => {
     if (inputValue.trim()) {
-      // ⚠️ PROBLEMA: Adiciona o valor diretamente sem sanitização
+      // UNSAFE: value is stored without sanitization
       setTodos([...todos, inputValue.trim()])
       setInputValue('')
     }
@@ -34,36 +34,44 @@ function InsecureTodoApp() {
   return (
     <div className="todo-app">
       <div className="warning-banner insecure">
-        <h2>⚠️ Versão Insegura — Demonstração de Risco XSS</h2>
+        <h2>Insecure version — XSS risk demo</h2>
         <p>
-          Esta versão é vulnerável a ataques XSS. O conteúdo inserido é renderizado
-          diretamente como HTML sem sanitização. <strong>Não use isso em produção!</strong>
+          This version is vulnerable to XSS. Input is rendered as raw HTML with no
+          sanitization. <strong>Do not use this in production.</strong>
         </p>
       </div>
 
       <div className="todo-section">
-        <h3>Meus TODOs</h3>
+        <h3>My todos</h3>
         <div className="input-container">
           <input
+            ref={inputRef}
             type="text"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             onKeyPress={handleKeyPress}
-            placeholder='Ex.: <img src="x" onerror="alert(1)"> (demonstração)'
+            placeholder='e.g. <img src="x" onerror="alert(1)"> (demo)'
             className="todo-input"
           />
           <button onClick={handleAddTodo} className="add-button">
-            Adicionar
+            Add
           </button>
         </div>
+
+        <XssDemoExamples
+          variant="insecure"
+          onUseExample={(payload) => {
+            setInputValue(payload)
+            requestAnimationFrame(() => inputRef.current?.focus())
+          }}
+        />
 
         <ul className="todo-list">
           {todos.map((todo, index) => (
             <li key={index} className="todo-item">
-              {/* 
-                ⚠️ VULNERABILIDADE XSS: 
-                dangerouslySetInnerHTML renderiza HTML diretamente sem sanitização.
-                Qualquer script ou HTML malicioso será executado!
+              {/*
+                XSS: dangerouslySetInnerHTML renders HTML without sanitization.
+                Malicious script or HTML may execute.
               */}
               <span dangerouslySetInnerHTML={{ __html: todo }} />
             </li>

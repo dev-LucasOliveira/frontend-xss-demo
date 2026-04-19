@@ -1,49 +1,49 @@
-# Como proteger a branch `main`
+# How to protect the `main` branch
 
-Este repositório está configurado para proteger a branch `main` contra commits diretos. Todas as mudanças devem passar por **Pull Requests** (PRs) que serão revisados antes de serem mesclados.
+This repository is set up so the `main` branch is protected from direct pushes. All changes must go through **Pull Requests** (PRs) that are reviewed before they are merged.
 
-> **✅ Gratuito para repositórios públicos**  
-> A proteção de branches está disponível **sem custo** para repositórios públicos no GitHub. Não é necessário GitHub Pro ou qualquer plano pago.
+> **Free for public repositories**  
+> Branch protection is available **at no cost** for public repositories on GitHub. You do not need GitHub Pro or any paid plan.
 
-## 🚀 Guia rápido
+## Quick guide
 
-**Para um guia passo a passo detalhado, veja: [SETUP_BRANCH_PROTECTION.md](./SETUP_BRANCH_PROTECTION.md)**
+**For a detailed step-by-step walkthrough, see: [SETUP_BRANCH_PROTECTION.md](./SETUP_BRANCH_PROTECTION.md)**
 
-### Resumo rápido:
+### Short summary
 
 1. **Settings** → **Branches** → **Add rule**
 2. **Branch name pattern**: `main`
-3. Marque:
-   - ✅ **Require a pull request before merging**
-   - ✅ **Require conversation resolution before merging**
-   - ✅ **Do not allow bypassing the above settings** ⚠️ (importante!)
-4. Clique em **Create**
+3. Enable:
+   - **Require a pull request before merging**
+   - **Require conversation resolution before merging**
+   - **Do not allow bypassing the above settings** (important)
+4. Click **Create**
 
-### Resultado
+### What you get
 
-- Ninguém (nem você) pode fazer `git push origin main` diretamente.
-- Todas as mudanças devem vir via Pull Requests.
-- Você revisa e aprova antes de mesclar.
-- O histórico fica limpo e controlado.
+- No one (including you) can run `git push origin main` directly.
+- All changes must come through Pull Requests.
+- You review and approve before merging.
+- History stays clear and controlled.
 
-## Alternativa: usar outra branch como padrão
+## Alternative: use another default branch
 
-Se preferir, você pode:
+If you prefer, you can:
 
-1. Criar uma branch `develop` ou `contributions`.
-2. Tornar essa branch a padrão para PRs.
-3. Manter `main` protegida e mesclar manualmente quando quiser.
+1. Create a branch such as `develop` or `contributions`.
+2. Make that branch the default for PRs.
+3. Keep `main` protected and merge into it when you choose.
 
-## Para contribuidores
+## For contributors
 
-Se você quer contribuir:
+If you want to contribute:
 
-1. Faça um **Fork** do repositório.
-2. Crie uma branch: `git checkout -b minha-contribuicao`.
-3. Faça suas mudanças e commit: `git commit -m "Descrição clara"`.
-4. Push para seu fork: `git push origin minha-contribuicao`.
-5. Abra um **Pull Request** aqui no repositório original.
+1. **Fork** the repository.
+2. Create a branch: `git checkout -b my-contribution`.
+3. Make your changes and commit: `git commit -m "Clear description"`.
+4. Push to your fork: `git push origin my-contribution`.
+5. Open a **Pull Request** on the original repository.
 
 ---
 
-*Esta configuração protege o código e mantém o repositório organizado para uso educacional.*
+*This setup protects the code and keeps the repository organized for educational use.*

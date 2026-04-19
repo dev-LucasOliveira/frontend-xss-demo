@@ -1,80 +1,80 @@
-# Contribuindo
+# Contributing
 
-Obrigado por considerar contribuir com este projeto educacional sobre XSS!
+Thanks for considering a contribution to this educational XSS project.
 
-## Como contribuir
+## How to contribute
 
-### 1. Fork e clone
+### 1. Fork and clone
 
-1. Faça um **Fork** deste repositório.
-2. Clone o seu fork:
+1. **Fork** this repository.
+2. Clone your fork:
+
    ```bash
-   git clone https://github.com/SEU_USUARIO/XSS_testing.git
-   cd XSS_testing
+   git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git
+   cd YOUR_REPO
    ```
 
-### 2. Crie uma branch
+### 2. Create a branch
 
 ```bash
-git checkout -b minha-contribuicao
+git checkout -b my-feature-branch
 ```
 
-Use um nome descritivo para a branch (ex.: `fix-readme-typo`, `add-example-doc`).
+Use a descriptive name (e.g. `fix-readme-typo`, `add-example-doc`).
 
-### 3. Faça suas mudanças
+### 3. Make your changes
 
-- Mantenha o foco educacional.
-- Siga o estilo de código existente.
-- Atualize a documentação se necessário.
-- Teste localmente antes de commitar.
+- Keep the educational focus.
+- Match existing code style.
+- Update documentation when needed.
+- Test locally before committing.
 
 ### 4. Commit
 
 ```bash
 git add .
-git commit -m "Descrição clara e concisa da mudança"
+git commit -m "Clear, concise description of the change"
 ```
 
-Use mensagens de commit descritivas.
+Use descriptive commit messages.
 
-### 5. Push e abra um Pull Request
+### 5. Push and open a Pull Request
 
 ```bash
-git push origin minha-contribuicao
+git push origin my-feature-branch
 ```
 
-Depois, vá para o repositório original no GitHub e abra um **Pull Request**.
+Then open a **Pull Request** on the original repository.
 
-## Diretrizes
+## Guidelines
 
-### Código
+### Code
 
-- Mantenha o código simples e didático.
-- Comente código que demonstra vulnerabilidades (marcado como inseguro).
-- Não adicione payloads maliciosos reais ou instruções de exploração.
+- Keep code simple and didactic.
+- Comment code that demonstrates vulnerabilities (clearly marked as insecure).
+- Do not add real malicious payloads or exploitation instructions.
 
-### Documentação
+### Documentation
 
-- Use linguagem clara e direta.
-- Mantenha o tom educacional, não sensacionalista.
-- Atualize o README se adicionar novas funcionalidades.
+- Use clear, direct language.
+- Keep an educational tone, not sensationalist.
+- Update the README if you add new features.
 
 ### Pull Requests
 
-- Descreva claramente o que a PR faz.
-- Explique o motivo da mudança.
-- Referencie issues relacionadas (se houver).
+- Describe what the PR does and why.
+- Reference related issues when applicable.
 
-## O que esperar
+## What to expect
 
-- Revisão de código antes de mesclar.
-- Feedback construtivo se algo precisar de ajuste.
-- Aprovação para PRs que seguem as diretrizes.
+- Code review before merge.
+- Constructive feedback if something needs adjustment.
+- Approval when the PR follows these guidelines.
 
-## Dúvidas?
+## Questions?
 
-Abra uma **Issue** para discutir mudanças maiores antes de começar a trabalhar.
+Open an **Issue** to discuss larger changes before you start.
 
 ---
 
-**Importante:** Este projeto é educacional. Contribuições devem ajudar a ensinar segurança, não facilitar uso malicioso.
+**Important:** This project is educational. Contributions should help teach security, not enable misuse.

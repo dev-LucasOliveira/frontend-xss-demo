@@ -32,7 +32,7 @@ const safeHtml = DOMPurify.sanitize(userInput, {
 
 Then use `safeHtml` in `dangerouslySetInnerHTML` (or equivalent). Script tags and event handlers are removed.
 
-**In the demo:** The secure route (`/seguro`) uses this approach so the same input that runs on `/inseguro` is safe on `/seguro`.
+**In the demo:** The secure route (`/secure`) uses this approach so the same input that runs on `/insecure` is safe on `/secure`.
 
 ---
 
