@@ -1,49 +1,55 @@
 .todo-app {
-  max-width: 800px;
-  margin: 0 auto;
+  width: 100%;
 }
 
 .warning-banner {
-  padding: 1.5rem;
-  border-radius: 8px;
-  margin-bottom: 2rem;
-  box-shadow: 0 2px 16px var(--shadow);
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-control);
+  margin-bottom: 1.75rem;
+  border: 1px solid var(--border);
+  box-shadow: none;
 }
 
 .warning-banner.insecure {
   background-color: var(--banner-insecure-bg);
-  border: 2px solid var(--banner-insecure-border);
+  border-color: var(--banner-insecure-border);
   color: var(--banner-insecure-text);
 }
 
 .warning-banner.secure {
   background-color: var(--banner-secure-bg);
-  border: 2px solid var(--banner-secure-border);
+  border-color: var(--banner-secure-border);
   color: var(--banner-secure-text);
 }
 
 .warning-banner h2 {
-  font-size: 1.25rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
   margin-bottom: 0.5rem;
+  color: inherit;
 }
 
 .warning-banner p {
-  font-size: 0.95rem;
-  line-height: 1.6;
+  font-size: 0.9375rem;
+  line-height: 1.65;
   opacity: 0.95;
 }
 
 .todo-section {
   background-color: var(--bg-elevated);
   padding: 1.5rem;
-  border-radius: 8px;
+  border-radius: var(--radius-card);
   border: 1px solid var(--border);
-  box-shadow: 0 2px 16px var(--shadow);
+  box-shadow: none;
   margin-bottom: 2rem;
 }
 
 .todo-section h3 {
-  font-size: 1.5rem;
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
   margin-bottom: 1rem;
   color: var(--text);
 }
@@ -56,42 +62,56 @@
 
 .todo-input {
   flex: 1;
-  padding: 0.75rem;
+  padding: 0.5625rem 0.75rem;
   font-size: 1rem;
   background-color: var(--bg-input);
   color: var(--text);
-  border: 2px solid var(--border);
-  border-radius: 6px;
-  transition: border-color 0.2s;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  transition: border-color 0.18s ease;
 }
 
 .todo-input::placeholder {
   color: var(--text-muted);
 }
 
+.todo-input:hover {
+  border-color: var(--border-hover);
+}
+
 .todo-input:focus {
   outline: none;
-  border-color: var(--accent);
+  border-color: var(--focus-ring);
 }
 
 .add-button {
-  padding: 0.75rem 1.5rem;
+  padding: 0.5625rem 1.125rem;
   font-size: 1rem;
-  background-color: var(--accent);
-  color: #0a0a0f;
-  border: none;
-  border-radius: 6px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--text);
+  background-color: var(--contained-bg);
+  border: 1px solid var(--contained-border);
+  border-radius: var(--radius-control);
   cursor: pointer;
-  transition: background-color 0.2s;
-  font-weight: 600;
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease;
+  box-shadow: none;
 }
 
 .add-button:hover {
-  background-color: var(--accent-hover);
+  background-color: var(--contained-bg-hover);
+  border-color: var(--contained-border-hover);
 }
 
 .add-button:active {
-  transform: scale(0.98);
+  transform: scale(0.99);
+}
+
+.add-button:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
 }
 
 .todo-list {
@@ -102,13 +122,11 @@
 .todo-item {
   padding: 1rem;
   margin-bottom: 0.5rem;
-  background-color: var(--bg-hover);
-  border-radius: 6px;
-  border-left: 4px solid var(--accent);
-  border-top: 1px solid var(--border);
-  border-right: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  transition: background-color 0.2s;
+  background-color: var(--bg-surface-hover);
+  border-radius: var(--radius-control);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--contained-border);
+  transition: background-color 0.18s ease;
   color: var(--text);
 }
 
