@@ -2,10 +2,39 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0a0a0f" />
+    <meta name="theme-color" content="#0A0A0A" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <meta
+      name="description"
+      content="Educational demo: Cross-Site Scripting (XSS) risks, unsafe vs sanitized HTML, and secure frontend patterns. For learning only."
+    />
+
     <title>XSS testing — educational demo</title>
+
+    <!-- Same asset as portfolio-web: apps/web/public/icon.svg (SVG favicon; no extra PNGs in that public folder) -->
+    <link rel="icon" href="./icon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="./site.webmanifest" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content="XSS testing — educational demo" />
+    <meta
+      property="og:description"
+      content="Educational demo: XSS risks, unsafe vs sanitized rendering, and why sanitization matters. For learning only."
+    />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="XSS testing — educational demo" />
+    <meta
+      name="twitter:description"
+      content="Educational demo: XSS risks, unsafe vs sanitized rendering, and why sanitization matters."
+    />
   </head>
   <body>
     <div id="root"></div>

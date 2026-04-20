@@ -1,0 +1,17 @@
+{
+  "name": "XSS testing — educational demo",
+  "short_name": "XSS demo",
+  "description": "Educational Cross-Site Scripting (XSS) demo — insecure vs sanitized rendering.",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#0A0A0A",
+  "theme_color": "#0A0A0A"
+}
