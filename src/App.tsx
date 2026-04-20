@@ -11,6 +11,7 @@ import InsecureTodoApp from "./components/InsecureTodoApp";
 import PortfolioSiteHeader from "./components/PortfolioSiteHeader";
 import SecureTodoApp from "./components/SecureTodoApp";
 import { ROUTES } from "./constants/routes";
+import { DEMO_SOURCE_REPO_URL } from "./constants/sourceRepo";
 import "./App.css";
 
 function Navigation() {
@@ -45,6 +46,19 @@ function AppContent() {
       <PortfolioSiteHeader />
       <div className="app-body">
         <header className="app-header">
+          <p className="app-header__source">
+            <a
+              href={DEMO_SOURCE_REPO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Source on GitHub
+            </a>
+            <span className="app-header__source-hint">
+              {" "}
+              — educational demo, open source
+            </span>
+          </p>
           <h1>XSS testing — educational demo</h1>
           <p className="subtitle">
             This project demonstrates XSS risks in a controlled, educational way
