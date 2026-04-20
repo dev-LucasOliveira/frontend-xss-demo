@@ -1,6 +1,6 @@
 # XSS Testing — Educational Demo
 
-This repository is a **frontend educational project** to demonstrate **Cross-Site Scripting (XSS)** risks in a controlled, non-malicious way. The goal is to help developers understand why unsafe HTML rendering is dangerous and why sanitization and secure patterns are mandatory.
+This repository is a **frontend educational project** to demonstrate **Cross-Site Scripting (XSS)** risks in a controlled, non-malicious way. The goal is to help developers understand why unsafe HTML rendering is dangerous and why sanitization and secure patterns are mandatory. The demo UI uses the same **dark-theme tokens and typography (Inter)** as [portfolio-web](https://github.com/dev-LucasOliveira/portfolio-web) (`packages/ui` theme), without adding MUI to this Vite app.
 
 **What this project demonstrates:**
 
@@ -30,6 +30,8 @@ This repository is a **frontend educational project** to demonstrate **Cross-Sit
 - **Install:** `npm install`
 - **Run:** `npm run dev` → app at `http://localhost:5173`
 
+The sticky top bar links to the portfolio site (same structure as portfolio-web’s navbar). Optional env: `VITE_PORTFOLIO_ORIGIN` (default `https://lucascoliveira.com`, no trailing slash) and `VITE_PORTFOLIO_LOCALE` (default `en`). Set them when you want preview builds to open a different portfolio host or locale.
+
 ## Documentation
 
 All XSS documentation is in **[docs/xss/](docs/xss/)**:
@@ -49,6 +51,7 @@ Each impact doc (01–03) has: what it demonstrates, why it's dangerous, the inj
 
 ```
 XSS_testing/
+├── public/             # icon.svg (+ site.webmanifest) — same favicon asset as portfolio-web apps/web/public
 ├── docs/xss/           # All XSS docs (overview, 01–03, insecure/safe patterns)
 ├── docs/security/xss/  # Stub that points to docs/xss
 ├── src/
@@ -73,6 +76,12 @@ XSS is dangerous because the browser trusts your application; injected code has 
 ## Tech stack
 
 React 18, Vite, TypeScript, React Router, DOMPurify.
+
+## Branding (favicon)
+
+The **[portfolio-web](https://github.com/dev-LucasOliveira/portfolio-web)** app’s `public` folder only exposes **`icon.svg`** for the mark (see e.g. [`apps/web/public/icon.svg`](https://github.com/dev-LucasOliveira/portfolio-web/blob/main/apps/web/public/icon.svg)). This project uses the **same SVG** and a single `<link rel="icon" href="./icon.svg" type="image/svg+xml" />` in `index.html`—no extra PNGs in `public` like we had added before.
+
+Next.js may still declare **`/opengraph-image.png`** / **`/twitter-image.png`** in `layout.tsx` metadata; those are **not** shipped in `public/` in the tree we mirrored—often generated elsewhere. Here, Open Graph / Twitter tags are **title + description only** (`twitter:card` is `summary` without an image URL).
 
 ## Deployment
 
