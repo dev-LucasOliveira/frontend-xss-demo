@@ -4,27 +4,42 @@
   box-sizing: border-box;
 }
 
+/* Dark theme tokens aligned with portfolio-web packages/ui/src/theme.ts (darkTokens) */
 :root {
   color-scheme: dark;
-  --bg-page: #0a0a0f;
-  --bg-elevated: #13131a;
-  --bg-hover: #1c1c26;
-  --bg-todo-hover: #22222c;
-  --bg-input: #0e0e14;
-  --border: #2a2a36;
-  --border-strong: #3a3a48;
-  --text: #e8e8ef;
-  --text-muted: #9898a8;
-  --accent: #8b93f5;
-  --accent-hover: #a3aaf7;
-  --accent-muted: rgba(139, 147, 245, 0.18);
-  --shadow: rgba(0, 0, 0, 0.45);
-  --banner-insecure-bg: rgba(127, 29, 29, 0.35);
-  --banner-insecure-border: #991b1b;
-  --banner-insecure-text: #fecaca;
-  --banner-secure-bg: rgba(22, 101, 52, 0.35);
-  --banner-secure-border: #15803d;
-  --banner-secure-text: #bbf7d0;
+  --bg-page: #0a0a0a;
+  --bg-elevated: #111111;
+  --bg-surface-hover: #161616;
+  --bg-input: #161616;
+  --bg-todo-hover: #1a1a1a;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(255, 255, 255, 0.12);
+  --text: #ededed;
+  --text-muted: rgba(237, 237, 237, 0.52);
+  --accent: #8b93a3;
+  --accent-hover: rgba(139, 147, 163, 0.9);
+  --contained-bg: rgba(139, 147, 163, 0.22);
+  --contained-bg-hover: rgba(139, 147, 163, 0.3);
+  --contained-border: rgba(139, 147, 163, 0.25);
+  --contained-border-hover: rgba(139, 147, 163, 0.35);
+  --focus-ring: rgba(139, 147, 163, 0.45);
+  --hover-overlay: rgba(255, 255, 255, 0.04);
+  --selected-overlay: rgba(255, 255, 255, 0.06);
+  --menu-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --banner-insecure-bg: rgba(232, 160, 160, 0.1);
+  --banner-insecure-border: rgba(232, 160, 160, 0.35);
+  --banner-insecure-text: rgba(232, 160, 160, 0.95);
+  --banner-secure-bg: rgba(134, 239, 172, 0.08);
+  --banner-secure-border: rgba(134, 239, 172, 0.28);
+  --banner-secure-text: rgba(187, 247, 208, 0.95);
+  --radius-card: 12px;
+  --radius-control: 8px;
+  /* Same as portfolio-web MUI Container maxWidth="lg" (1200px) */
+  --layout-max-width: 1200px;
+  /* Above demo XSS payloads that use z-index: 9999 so app chrome stays usable */
+  --z-app-chrome: 10000;
+  --z-menu-backdrop: 10001;
+  --z-menu-panel: 10002;
 }
 
 html {
@@ -32,8 +47,14 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family:
+    "Inter",
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    Arial,
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
